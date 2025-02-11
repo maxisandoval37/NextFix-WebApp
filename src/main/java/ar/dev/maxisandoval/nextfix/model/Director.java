@@ -2,11 +2,8 @@ package ar.dev.maxisandoval.nextfix.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.cglib.core.Local;
-
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Data //toString, equals, hashcode, getters y los setters
