@@ -7,6 +7,7 @@ import java.util.*;
 
 @Entity
 @Data //toString, equals, hashcode, getters y los setters
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Pelicula {
@@ -28,5 +29,6 @@ public class Pelicula {
             joinColumns = @JoinColumn(name = "pelicula_id"),
             inverseJoinColumns = @JoinColumn(name = "plataforma_id"))
     @ToString.Exclude
+    @Builder.Default
     private List<Plataforma> plataformasDisponibles = new ArrayList<>();//netflix, hbo, cine, tv, etc
 }
