@@ -37,7 +37,9 @@ VALUES
     ('Pulp Fiction', 'Crimen', '1994-10-14', 7),
     ('Forrest Gump', 'Drama', '1994-07-06', 8);
 
-INSERT INTO Pelicula_Plataforma (pelicula_id, plataforma_id) VALUES (1, 1);
-INSERT INTO Pelicula_Plataforma (pelicula_id, plataforma_id) VALUES (2, 2);
-INSERT INTO Pelicula_Plataforma (pelicula_id, plataforma_id) VALUES (2, 1);
-INSERT INTO Pelicula_Plataforma (pelicula_id, plataforma_id) VALUES (3, 4);
+INSERT INTO Pelicula_Plataforma (pelicula_id, plataforma_id)
+VALUES
+    (1, 1),
+    (2, 2),
+    (2, 1),
+    (3, 4);

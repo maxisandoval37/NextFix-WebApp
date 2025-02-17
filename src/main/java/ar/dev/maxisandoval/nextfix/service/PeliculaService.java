@@ -22,7 +22,7 @@ public class PeliculaService {
 
     public Pelicula obtenerPeliculaPorId(Long id) {
         return peliculaRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("No se encontró la pelicula con el id:" + id));
+                () -> new RuntimeException("No se encontró la pelicula con el id: " + id));
     }
 
     public List<Pelicula> listarPeliculas() {
@@ -72,7 +72,6 @@ public class PeliculaService {
                     .director(peliculaActualizada.getDirector())
                     .plataformasDisponibles(peliculaActualizada.getPlataformasDisponibles());
         });
-
 
         return peliculaBuilder.build();
     }
