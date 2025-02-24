@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:insert="~{fragments/header}"></head>
+<body class="container mt-5">
+
+<h2>Lista de Plataformas Disponibles</h2>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Moneda</th>
+        <th>Enlace</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Aca iteramos sobre la lista de plataformas y mostramos cada plataforma -->
+    <tr th:each="plataforma : ${plataformas}">
+        <td th:text="${plataforma.id}"></td>
+        <td th:text="${plataforma.nombre}"></td>
+        <td th:text="${plataforma.precio}"></td>
+        <td th:text="${plataforma.moneda}"></td>
+        <td th:text="${plataforma.enlace}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- @{ toma el contexto actual-->
+<a th:href="@{/peliculas}" class="btn btn-secondary">Ver Lista de Peliculas</a>
+
+<div th:replace="~{fragments/footer}"></div>
+</body>
+</html>

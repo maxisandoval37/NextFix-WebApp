@@ -10,12 +10,11 @@
     <tr>
         <th>ID</th>
         <th>Nacionalidad</th>
-        <th>Fecha de nacimiento</th>
+        <th>Fecha de Nacimiento</th>
         <th>Email</th>
         <th>Peliculas</th>
     </tr>
     </thead>
-
     <tbody>
     <tr th:each="director : ${directores}">
         <td th:text="${director.id}"></td>
@@ -24,7 +23,7 @@
         <td th:text="${director.email}"></td>
         <td>
             <label>
-                <select disabled size="5" style="max-height: 75px; overflow-y: auto">
+                <select disabled size="5" style="max-height: 75px; overflow-y: auto;">
                     <option th:each="pelicula : ${director.getPeliculasDirigidas()}" th:value="${pelicula.id}" th:text="${pelicula.titulo}"></option>
                 </select>
             </label>
@@ -33,11 +32,9 @@
     </tbody>
 </table>
 
-<!--Enlace para regresar a la lista de peliculas-->
-
+<!-- Enlace para regresar a la lista de peliculas -->
 <a th:href="@{/peliculas}" class="btn btn-secondary">Ver Lista de Peliculas</a>
 
 <div th:replace="~{fragments/footer}"></div>
-
 </body>
 </html>

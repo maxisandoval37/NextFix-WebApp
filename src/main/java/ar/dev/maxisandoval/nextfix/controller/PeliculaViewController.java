@@ -1,9 +1,7 @@
 package ar.dev.maxisandoval.nextfix.controller;
 
 import ar.dev.maxisandoval.nextfix.model.Pelicula;
-import ar.dev.maxisandoval.nextfix.service.DirectorService;
-import ar.dev.maxisandoval.nextfix.service.PeliculaService;
-import ar.dev.maxisandoval.nextfix.service.PlataformaService;
+import ar.dev.maxisandoval.nextfix.service.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

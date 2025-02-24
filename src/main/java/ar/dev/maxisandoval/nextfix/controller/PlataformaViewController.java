@@ -17,7 +17,7 @@ public class PlataformaViewController {
     public String listarPlataformas(Model model) {
         model.addAttribute("plataformas", plataformaService.listarPlataformas());
 
-        return "listarPlataformas";
+        return "listaPlataformas";
     }
 
     @GetMapping("/agregarPlataforma")
