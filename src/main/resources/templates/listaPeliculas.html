@@ -41,7 +41,8 @@
         <td th:text="${pelicula.genero}"></td>
         <td th:text="${pelicula.fechaEstreno}"></td>
 
-        <td th:text="${pelicula.director.email}">
+        <td th:text="${userService.obtenerUsuarioPorDirector(pelicula.director)?.nombre+ ' '+
+            userService.obtenerUsuarioPorDirector(pelicula.director)?.apellido ?: 'No disponible'}" >
         </td>
 
         <td>
