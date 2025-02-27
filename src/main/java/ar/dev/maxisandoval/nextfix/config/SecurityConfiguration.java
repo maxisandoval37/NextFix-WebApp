@@ -25,6 +25,8 @@ public class SecurityConfiguration {
                 .userDetailsService(userDetailsService)
                 .authorizeHttpRequests(request -> request
                         .requestMatchers("/", "/registro").permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/gestorRoles")).hasAuthority("ROL_ADMIN")
+                        .requestMatchers(new AntPathRequestMatcher("/actualizarRolUsuario")).hasAuthority("ROL_ADMIN")
                         .requestMatchers(toH2Console()).permitAll()
                         .anyRequest().authenticated()
                 )

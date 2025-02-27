@@ -12,6 +12,8 @@
     <a th:href="@{/directores}" class="btn btn-primary">Ver Directores</a>
 
     <div class="mb-3"></div>
+
+    <a sec:authorize="hasAuthority('ROL_ADMIN')" th:href="@{/gestorRoles}" class="btn btn-danger">Gestor Roles (Panel Admin)</a>
 </div>
 
 <table class="table table-bordered">
@@ -41,8 +43,8 @@
         <td th:text="${pelicula.genero}"></td>
         <td th:text="${pelicula.fechaEstreno}"></td>
 
-        <td th:text="${userService.obtenerUsuarioPorDirector(pelicula.director)?.nombre+ ' '+
-            userService.obtenerUsuarioPorDirector(pelicula.director)?.apellido ?: 'No disponible'}" >
+        <td th:text="${userService.obtenerUsuarioPorDirector(pelicula.director).nombre +' '+
+            userService.obtenerUsuarioPorDirector(pelicula.director).apellido}">
         </td>
 
         <td>

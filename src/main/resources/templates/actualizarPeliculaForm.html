@@ -27,7 +27,7 @@
     <div class="form-group">
         <label for="idDirector">Director:</label>
         <select class="form-control" id="idDirector" name="idDirector" required>
-            <option th:each="director : ${directores}" th:value="${director.id}" th:text="${director.email}"></option>
+            <option th:each="usuario : ${usuariosConDirector}" th:value="${usuario.director.id}" th:text="${usuario.nombre +' '+ usuario.apellido}" th:selected="${usuario.director.id eq pelicula.director.id}"></option>
         </select>
     </div>
 
