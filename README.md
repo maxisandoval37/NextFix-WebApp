@@ -60,7 +60,7 @@ El endpoint principal de la aplicación se encuentra en:
 ## Información Adicional
 Para cualquier información adicional o consultas: <maxisandoval98@gmail.com>
 
-**¡Muchas gracias!**
+<p align="center"><b>¡Muchas gracias! 🦔</b></p>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/maxisandoval37/NextFix-WebApp/refs/heads/main/src/main/resources/static/0.png" />
