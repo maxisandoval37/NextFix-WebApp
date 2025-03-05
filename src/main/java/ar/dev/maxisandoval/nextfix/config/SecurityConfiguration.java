@@ -24,7 +24,7 @@ public class SecurityConfiguration {
         http.csrf(crsf -> crsf.ignoringRequestMatchers(toH2Console()))
                 .userDetailsService(userDetailsService)
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/", "/registro").permitAll()
+                        .requestMatchers("/", "/registro", "/1.png").permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/gestorRoles")).hasAuthority("ROL_ADMIN")
                         .requestMatchers(new AntPathRequestMatcher("/actualizarRolUsuario")).hasAuthority("ROL_ADMIN")
                         .requestMatchers(toH2Console()).permitAll()

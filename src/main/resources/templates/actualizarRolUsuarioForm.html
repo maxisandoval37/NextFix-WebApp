@@ -27,7 +27,7 @@
     <label for="nacionalidad">Nacionalidad:</label>
     <input type="text" class="form-control" id="nacionalidad" name="nacionalidad" required>
   </div>
-  <div class="form-group">
+  <div class="form-group" id="fechaNacimientoGroup" style="display: none;">
     <label for="fechaNacimiento">Fecha de Nacimiento:</label>
     <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" min="1970-01-01" max="3000-12-31" required>
   </div>
@@ -44,23 +44,17 @@
 <!-- Script para mostrar/ocultar inputs adicionales cuando se selecciona ROL_DIRECTOR -->
 <script th:inline="javascript">
   function toggleInputs() {
-    let rol = document.getElementById("rol").value;
-    let nacionalidadGroup = document.getElementById("nacionalidadGroup");
-    let emailGroup = document.getElementById("emailGroup");
+    const rol = document.getElementById("rol").value;
+    const fields = ["nacionalidad", "fechaNacimiento", "email"];
 
-    if (rol === "ROL_DIRECTOR") {
-      nacionalidadGroup.style.display = "block";
-      emailGroup.style.display = "block";
-      document.getElementById("nacionalidad").required = true;
-      document.getElementById("fechaNacimiento").required = true;
-      document.getElementById("email").required = true;
-    } else {
-      nacionalidadGroup.style.display = "none";
-      emailGroup.style.display = "none";
-      document.getElementById("nacionalidad").required = false;
-      document.getElementById("fechaNacimiento").required = false;
-      document.getElementById("email").required = false;
-    }
+    fields.forEach(field => {
+      const group = document.getElementById(`${field}Group`);
+      const input = document.getElementById(field);
+      const isDirector = rol === "ROL_DIRECTOR";
+
+      group.style.display = isDirector ? "block" : "none";
+      input.required = isDirector;
+    });
   }
 
   window.onload = function() {// Verificar el rol seleccionado al cargar la página
