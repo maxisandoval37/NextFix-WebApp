@@ -22,11 +22,6 @@ jobs:
     - name: Build and Test
       run: mvn clean test
 
-    - name: Move Report to Docs
-      run: |
-        mkdir -p ./gh-pages
-        cp -r target/site/* ./gh-pages/
-
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
