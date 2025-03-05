@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-class PlataformaServiceTest {
+class PlataformaServiceTest extends BaseTest {
 
     private final PlataformaService plataformaService;
     private Plataforma plataformaGuardada;

@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-class DirectorServiceTest {
+class DirectorServiceTest extends BaseTest {
 
     private final DirectorService directorService;
     private Director directorGuardado;

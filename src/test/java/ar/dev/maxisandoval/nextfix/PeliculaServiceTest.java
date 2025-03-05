@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-class PeliculaServiceTest {
+class PeliculaServiceTest extends BaseTest {
 
     private final PeliculaService peliculaService;
     private final DirectorService directorService;
