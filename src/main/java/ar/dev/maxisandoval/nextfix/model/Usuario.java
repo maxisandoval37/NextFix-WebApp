@@ -1,9 +1,7 @@
 package ar.dev.maxisandoval.nextfix.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Data //toString, equals, hashcode, getters y los setters
@@ -17,7 +15,8 @@ public class Usuario {
     private Long id;
     private String username;
     private String contrasena;
-    private String rol;
+    @Enumerated(EnumType.STRING) // Guarda el enum como string en db
+    private Rol rol;
     private String nombre;
     private String apellido;
 

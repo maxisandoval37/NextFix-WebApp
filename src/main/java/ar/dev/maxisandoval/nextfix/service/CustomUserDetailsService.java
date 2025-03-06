@@ -20,9 +20,6 @@ public class CustomUserDetailsService implements UserDetailsService {
     private final UsuarioRepository usuarioRepository;
     private final PeliculaRepository peliculaRepository;
 
-    private final String ROL_LECTURA = "ROL_LECTURA";
-    private final String ROL_DIRECTOR = "ROL_DIRECTOR";
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
@@ -34,7 +31,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         return User.withUsername(usuario.getUsername())
                 .password(usuario.getContrasena())
-                .authorities(List.of(new SimpleGrantedAuthority(usuario.getRol())))
+                .authorities(List.of(new SimpleGrantedAuthority(usuario.getRol().name())))
                 .build();
     }
 
@@ -46,7 +43,7 @@ public class CustomUserDetailsService implements UserDetailsService {
             throw new DataIntegrityViolationException("El usuario ya se encuentra registrado!");
         }
 
-        usuario.setRol(ROL_LECTURA);
+        usuario.setRol(Rol.ROL_LECTURA);
         usuario.setContrasena(passwordEncoder().encode(usuario.getContrasena()));
 
         return usuarioRepository.save(usuario);
@@ -100,7 +97,7 @@ public class CustomUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("actualizarRolUsuario: Usuario no encontrado");
         }
 
-        usuario.setRol(nuevoRol);
+        usuario.setRol(Rol.valueOf(nuevoRol));
         //usuario.setDirector(null); TODO ver
 
         usuarioRepository.save(usuario);
@@ -113,7 +110,7 @@ public class CustomUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("actualizarRolUsuarioDirector: Usuario no encontrado");
         }
 
-        usuario.setRol(ROL_DIRECTOR);
+        usuario.setRol(Rol.ROL_DIRECTOR);
         usuario.setDirector(director);
         usuarioRepository.save(usuario);
     }
