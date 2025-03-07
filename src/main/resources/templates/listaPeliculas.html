@@ -3,27 +3,18 @@
 <head th:insert="~{fragments/header}"></head>
 <body class="container mt-5">
 
-<h2>Lista de Peliculas</h2>
-
-<!--Botones para agregar plataformas y peliculas -->
-<div class="mb-3">
-    <a th:href="@{/agregarPlataforma}" class="btn btn-primary">Agregar Plataforma</a>
-    <a th:href="@{/agregarPelicula}" class="btn btn-primary">Agregar Pelicula</a>
-    <a th:href="@{/directores}" class="btn btn-primary">Ver Directores</a>
-
-    <div class="mb-3"></div>
-
-    <a sec:authorize="hasAuthority('ROL_ADMIN')" th:href="@{/gestorRoles}" class="btn btn-danger">Gestor Roles (Panel Admin)</a>
-</div>
+<h2 class="mb-4">Lista de Peliculas</h2>
 
 <table class="table table-bordered">
 
-    USUARIO AUTENTICADO:
-    <div sec:authentication="principal.username"></div>
-    <br>
-    ROLES DEL USUARIO AUTENTICADO:
-    <div sec:authentication="principal.authorities"></div>
-    <br>
+    <div hidden="hidden">
+        USUARIO AUTENTICADO:
+        <div sec:authentication="principal.username"></div>
+        <br>
+        ROLES DEL USUARIO AUTENTICADO:
+        <div sec:authentication="principal.authorities"></div>
+        <br>
+    </div>
 
     <thead>
     <tr>
