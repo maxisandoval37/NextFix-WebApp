@@ -44,13 +44,23 @@
         <li class="nav-item" sec:authorize="hasAuthority('ROL_ADMIN')">
           <a class="nav-link text-danger" th:href="@{/gestorRoles}">Gestor Roles (Panel Admin)</a>
         </li>
-        <li class="nav-item">
-          <form id="logoutForm" th:action="@{/logout}" method="post" class="d-inline">
-            <button type="button" class="btn btn-danger rounded-pill px-3" id="logoutBtn">
-              <i class="fas fa-sign-out-alt"></i> Salir
-            </button>
-          </form>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user-circle me-2"></i>
+            <span sec:authentication="principal.username"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li>
+              <form id="logoutForm" th:action="@{/logout}" method="post" class="d-inline">
+                <a class="dropdown-item text-danger" href="#" id="logoutBtn">
+                  <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                </a>
+              </form>
+            </li>
+          </ul>
         </li>
+
       </ul>
     </div>
   </div>
