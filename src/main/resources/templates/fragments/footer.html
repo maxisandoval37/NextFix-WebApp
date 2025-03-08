@@ -5,6 +5,10 @@
     <br>
     <b>Nextfix</b>
     <br>
-    Todos los derechos reservados &copy 2025
+    Todos los derechos reservados &copy; <span id="currentYear"></span>
   </p>
 </div>
+
+<script>
+  document.getElementById("currentYear").textContent = new Date().getFullYear()+"";
+</script>
