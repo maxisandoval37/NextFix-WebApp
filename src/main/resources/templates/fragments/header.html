@@ -45,20 +45,35 @@
           <a class="nav-link text-danger" th:href="@{/gestorRoles}">Gestor Roles (Panel Admin)</a>
         </li>
         <li class="nav-item">
-          <form th:action="@{/logout}" method="post" class="d-inline">
-            <button type="submit" class="btn btn-danger rounded-pill px-3">
+          <form id="logoutForm" th:action="@{/logout}" method="post" class="d-inline">
+            <button type="button" class="btn btn-danger rounded-pill px-3" id="logoutBtn">
               <i class="fas fa-sign-out-alt"></i> Salir
             </button>
           </form>
         </li>
-        <!-- TODO
-          - Agregar alerta confirmación logout
-          - mostrar nombre de usuario actual
-          - enlaces de la nav bar a la izquierda
-        -->
       </ul>
     </div>
   </div>
 </nav>
 
 <hr>
+
+<script>
+  <!-- Alerta cerrar sesión -->
+  document.getElementById("logoutBtn").addEventListener("click", function (event) {
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "Se cerrará sesión",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Sí, salir",
+      cancelButtonText: "Cancelar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.getElementById("logoutForm").submit();
+      }
+    });
+  });
+</script>
